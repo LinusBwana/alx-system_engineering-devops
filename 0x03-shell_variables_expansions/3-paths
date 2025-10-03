@@ -1,0 +1,10 @@
+#!/bin/bash
+# Count the number of directories in PATH, ignoring empty ones
+IFS=':' read -ra dirs <<< "$PATH"
+count=0
+for dir in "${dirs[@]}"; do
+    if [ -n "$dir" ]; then
+        ((count++))
+    fi
+done
+echo "$count"
